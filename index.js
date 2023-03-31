@@ -43,7 +43,8 @@ app.post("/signup", async function (req, res) {
 app.get("/signin", async function (req, res) {
   try {
     const user = req.body;
-    if (((userMap.email === user.email) && (userMap.password === user.password))) {
+  
+    if ((userMap.get(user.email) && (userMap.get(user.email) === user.password))) {
       res.send("you are connected");
       return;
     }
